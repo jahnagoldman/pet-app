@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dogproject.urls'
+ROOT_URLCONF = 'petproject.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dogproject.wsgi.application'
+WSGI_APPLICATION = 'petproject.wsgi.application'
 
 
 # Database
