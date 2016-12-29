@@ -135,11 +135,11 @@ ENV/
 .ropeproject
 
 .gitignore
-login/__init__.pyc
-login/__pycache__/admin.cpython-35.pyc
-login/__pycache__/models.cpython-35.pyc
-login/apps.pyc
-login/migrations/__pycache__/
+login/templates/login/templates/registration/__init__.pyc
+login/templates/login/templates/registration/__pycache__/admin.cpython-35.pyc
+login/templates/login/templates/registration/__pycache__/models.cpython-35.pyc
+login/templates/login/templates/registration/apps.pyc
+login/templates/login/templates/registration/migrations/__pycache__/
 myvenv/include/
 petproject/__init__.pyc
 petproject/settings.pyc
