@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     'accounts',
     'events',
+    'pets',
     'crispy_forms',
 
 ]
