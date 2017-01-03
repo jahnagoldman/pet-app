@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 
 import os
+import django.contrib.auth
+django.contrib.auth.LOGIN_URL = '/'
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -42,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
+    'accounts',
+    'crispy_forms',
 
 ]
 
@@ -132,4 +137,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+ACCOUNT_ACTIVATION_DAYS = 7
 
