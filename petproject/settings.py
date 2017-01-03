@@ -141,3 +141,5 @@ STATIC_URL = '/static/'
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
+DATE_INPUT_FORMATS = ('%d-%m-%Y')
+

@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.contrib.auth import views
 from django.conf.urls import include, url
 from accounts.views import (login_view, register_view, logout_view,)
+from pets.views import create_pet_view
 from events.views import index
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', login_view, name='login'),
     url(r'^logout/', logout_view, name='logout'),
     url(r'^register/', register_view, name='register'),
-    url(r'^', index, name='home')
+    url(r'^pets/new/$', create_pet_view, name='new_pet'),
+    url(r'^', index, name='home'),
 
 ]

@@ -9,7 +9,6 @@ from .forms import UserLoginForm, UserRegisterForm
 # Create your views here.
 
 def login_view(request):
-    print(request.user.is_authenticated())
     title = "Login"
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
