@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from accounts.views import (login_view, register_view, logout_view,)
 from pets.views import create_pet_view, PetListView
 from events.views import index
+from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', login_view, name='login'),

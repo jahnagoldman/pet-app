@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 LOGIN_REDIRECT_URL = "/"
 
 ROOT_URLCONF = 'petproject.urls'

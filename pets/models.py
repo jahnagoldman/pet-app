@@ -31,5 +31,6 @@ class Pet(models.Model):
     @classmethod
     def create(cls, owner, name, animal, birthday, microchip_number):
         pet = cls(owner=owner, name=name, animal=animal, birthday=birthday, microchip_number=microchip_number)
+        pet.save()
         return pet
 
