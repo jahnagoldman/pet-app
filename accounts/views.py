@@ -9,6 +9,7 @@ from .forms import UserLoginForm, UserRegisterForm
 # Create your views here.
 
 def login_view(request):
+    print(request.user.is_authenticated())
     title = "Login"
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
@@ -16,6 +17,7 @@ def login_view(request):
         password = form.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         login(request, user)
+        print(request.user.is_authenticated())
         return redirect("/")
     return render(request, "form.html", {"form":form, "title": title})
 
