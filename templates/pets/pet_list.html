@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Pets</h1>
+<ul>
+{% for pet in object_list %}
+    <li> {{ pet.name }} - {{ pet.animal }} - {{ pet.birthday }} - {{ pet.microchip_number }} </li>
+{% empty %}
+    <li>No pets yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

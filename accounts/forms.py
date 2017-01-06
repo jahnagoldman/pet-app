@@ -6,8 +6,10 @@ from django.contrib.auth import (
     logout,
 )
 
+# current user
 User = get_user_model()
 
+# login form
 class UserLoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)

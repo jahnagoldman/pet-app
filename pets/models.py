@@ -11,7 +11,8 @@ from petproject import settings
 
 
 class Pet(models.Model):
-    pet_id = models.PositiveIntegerField(primary_key=True, default=0)
+    # override pet_id, primary key
+    # user associated to pet
     owner = models.ForeignKey(User(), on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=30)
     DOG = 'D'

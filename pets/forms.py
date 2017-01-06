@@ -4,6 +4,7 @@ from .models import Pet
 from petproject import settings
 
 class PetForm(forms.ModelForm):
+    # use settings for date input
     birthday = DateField(input_formats=settings.DATE_INPUT_FORMATS)
     class Meta:
         model = Pet
