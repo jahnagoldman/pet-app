@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Walks</h1>
+<ul>
+{% for walk in object_list %}
+    <li> {{ walk.pet.name }} - {{ walk.walk_time }} - {{ walk.walk_date }} - {{ walk.comments }} - {{ walk.pet.owner }}</li>
+{% empty %}
+    <li>No walks yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

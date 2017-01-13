@@ -1,6 +1,8 @@
 from datetime import date
-from django.db import models
+import django
+
 from pets.models import Pet
+from django.db import models
 
 
 # Create your models here.
@@ -8,7 +10,7 @@ from pets.models import Pet
 
 class Walk(models.Model):
     pet = models.ForeignKey(Pet(), on_delete=models.CASCADE, default=None)
-    walk_time = models.TimeField(auto_now=False, auto_now_add=False)
+    walk_time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.localtime(django.utils.timezone.now()))
     walk_date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
     comments = models.TextField(blank=True)
 
