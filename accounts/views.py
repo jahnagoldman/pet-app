@@ -19,7 +19,7 @@ def login_view(request):
         login(request, user)
         print(request.user.is_authenticated())
         return redirect("/")
-    return render(request, "form.html", {"form":form, "title": title})
+    return render(request, "login.html", {"form":form, "title": title})
 
 def register_view(request):
     title = "Register"
