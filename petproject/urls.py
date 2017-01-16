@@ -1,4 +1,4 @@
-"""dogproject URL Configuration
+"""petproject URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import include, url
-from accounts.views import (login_view, register_view, logout_view,)
+from accounts.views import (login_view, register_view, logout_view, )
 from bathroom.views import BathroomListView, NewBathroomView
 from feedings.views import FeedingListView, NewFeedingView
 from medications.views import MedicationListView, NewMedicationView
 from pets.views import PetListView, NewPetView
 from walks.views import index, WalkListView, NewWalkView
 from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', login_view, name='login'),
