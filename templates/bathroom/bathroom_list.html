@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bathroom Events</h1>
+<ul>
+{% for bathroom in object_list %}
+    <li> {{ bathroom.pet.name }} - {{ bathroom.bathroom_type }} - {{ bathroom.bathroom_time }} - {{ bathroom.bathroom_date }} - {{ bathroom.comments }} - {{ bathroom.pet.owner }}</li>
+{% empty %}
+    <li> No bathroom events yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

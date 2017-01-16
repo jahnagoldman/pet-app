@@ -15,7 +15,7 @@ class Feeding(models.Model):
     comments = models.TextField(blank=True)
 
     def __str__(self):
-        return self.feed_time
+        return self.feeding_time
 
     @classmethod
     def create(cls, pet, feeding_time, feeding_date, comments):

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Medications</h1>
+<ul>
+{% for medication in object_list %}
+    <li> {{ medication.pet.name }} - {{ medication.type }} - {{ medication.medication_time }} - {{ medication.medication_date }} - {{ medication.comments }} - {{ medication.pet.owner }}</li>
+{% empty %}
+    <li>No medications yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

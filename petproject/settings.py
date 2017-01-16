@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'walks',
     'pets',
     'feedings',
+    'bathroom',
+    'medications',
     'crispy_forms',
 
 ]
