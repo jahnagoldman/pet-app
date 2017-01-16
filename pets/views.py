@@ -10,21 +10,22 @@ from .models import Pet
 
 # Create your views here.
 
+class NewPetView(LoginRequiredMixin, FormView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = 'pets/new_pet.html'
+    form_class = PetForm
+    success_url = '/pets/'
 
-@login_required(login_url='/login/')
-def create_pet_view(request):
-    form = PetForm(request.POST or None)
-    if form.is_valid():
+    def form_valid(self, form):
+    # this method is called when valid form data has been POSTed - returns HTTPResponse
         name = form.cleaned_data['name']
         animal = form.cleaned_data['animal']
         birthday = form.cleaned_data['birthday']
         microchip_number = form.cleaned_data['microchip_number']
-        owner = request.user
+        owner = self.request.user
         new_pet = Pet.create(owner, name, animal, birthday, microchip_number)
-        print(new_pet.name)
-        return redirect("/pets/")
-    return render(request, 'pets/new_pet.html', {'form': form})
-
+        return super(NewPetView, self).form_valid(form)
 
 # login required for a class
 class PetListView(LoginRequiredMixin, ListView):

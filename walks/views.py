@@ -6,8 +6,8 @@ from django.http import HttpResponse
 # Create your views here.
 from django.views.generic import FormView
 from django.views.generic import ListView
-from events.forms import WalkForm
-from events.models import Walk
+from walks.forms import WalkForm
+from walks.models import Walk
 from pets.models import Pet
 
 
@@ -19,9 +19,9 @@ def index(request):
 class NewWalkView(LoginRequiredMixin, FormView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
-    template_name = 'events/new_walk.html'
+    template_name = 'walks/new_walk.html'
     form_class = WalkForm
-    success_url = '/events/walks/'
+    success_url = '/walks/'
 
     # make request available as one of keyword arguments to the WalkForm's init constructor method
     def get_form_kwargs(self):
@@ -43,7 +43,7 @@ class WalkListView(LoginRequiredMixin, ListView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     model = Walk
-    template_name = 'events/walk_list.html'
+    template_name = 'walks/walk_list.html'
 
     def get_queryset(self):
         return Walk.objects.filter(pet__owner=self.request.user)
