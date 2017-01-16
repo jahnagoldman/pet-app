@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf.urls import include, url
 from accounts.views import (login_view, register_view, logout_view,)
 from pets.views import create_pet_view, PetListView
-from events.views import index, new_walk_view, WalkListView
+from events.views import index, WalkListView, NewWalkView
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^pets/$', PetListView.as_view(), name='pet-list'),
     url(r'^pets/new/$', create_pet_view, name='new_pet'),
     url(r'^events/walks/$', WalkListView.as_view(), name='walk-list'),
-    url(r'^events/walks/new/$', new_walk_view, name='new_walk'),
+    url(r'^events/walks/new/$', NewWalkView.as_view(), name='new_walk'),
     url(r'^', index, name='home'),
 
 ]

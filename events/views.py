@@ -4,26 +4,39 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 # Create your views here.
+from django.views.generic import FormView
 from django.views.generic import ListView
 from events.forms import WalkForm
 from events.models import Walk
+from pets.models import Pet
 
 
 @login_required(login_url='/login/')
 def index(request):
     return render(request, 'base.html')
 
-@login_required(login_url='/login/')
-def new_walk_view(request):
-    form = WalkForm(request.POST or None)
-    if form.is_valid():
+
+class NewWalkView(LoginRequiredMixin, FormView):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+    template_name = 'events/new_walk.html'
+    form_class = WalkForm
+    success_url = '/events/walks/'
+
+    # make request available as one of keyword arguments to the WalkForm's init constructor method
+    def get_form_kwargs(self):
+        kw = super(NewWalkView, self).get_form_kwargs()
+        kw['request'] = self.request  # the trick!
+        return kw
+
+    def form_valid(self, form):
+    # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         walk_time = form.cleaned_data['walk_time']
         walk_date = form.cleaned_data['walk_date']
         comments = form.cleaned_data['comments']
         new_walk = Walk.create(pet, walk_time, walk_date, comments)
-        return redirect("/events/walks/")
-    return render(request, 'events/new_walk.html', {'form': form})
+        return super(NewWalkView, self).form_valid(form)
 
 # login required for a class
 class WalkListView(LoginRequiredMixin, ListView):
