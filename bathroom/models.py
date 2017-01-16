@@ -1,12 +1,11 @@
 from django.db import models
 from datetime import date
-
 import django
 from django.db import models
+from pets.models import Pet
+
 
 # Create your models here.
-
-from pets.models import Pet
 
 
 class Bathroom(models.Model):
@@ -27,7 +26,7 @@ class Bathroom(models.Model):
 
     @classmethod
     def create(cls, pet, bathroom_type, bathroom_time, bathroom_date, comments):
-        bathroom = cls(pet=pet, bathroom_type=bathroom_type, bathroom_time=bathroom_time, bathroom_date=bathroom_date, comments=comments)
+        bathroom = cls(pet=pet, bathroom_type=bathroom_type, bathroom_time=bathroom_time, bathroom_date=bathroom_date,
+                       comments=comments)
         bathroom.save()
         return bathroom
-

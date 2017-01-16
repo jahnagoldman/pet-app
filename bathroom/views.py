@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import FormView
 from django.views.generic import ListView
-
 from bathroom.forms import BathroomForm
 from bathroom.models import Bathroom
 
@@ -29,14 +28,15 @@ class NewBathroomView(LoginRequiredMixin, FormView):
         return kw
 
     def form_valid(self, form):
-    # this method is called when valid form data has been POSTed - returns HTTPResponse
+        # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
-        bathroom_type = form.c
+        bathroom_type = form.cleaned_data['bathroom_type']
         bathroom_time = form.cleaned_data['bathroom_time']
         bathroom_date = form.cleaned_data['bathroom_date']
         comments = form.cleaned_data['comments']
         new_bathroom = Bathroom.create(pet, bathroom_time, bathroom_date, comments)
         return super(NewBathroomView, self).form_valid(form)
+
 
 # login required for a class
 class BathroomListView(LoginRequiredMixin, ListView):
