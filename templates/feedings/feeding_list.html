@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Feedings</h1>
+<ul>
+{% for feeding in object_list %}
+    <li> {{ feeding.pet.name }} - {{ feeding.feeding_time }} - {{ feeding.feeding_date }} - {{ feeding.comments }} - {{ feeding.pet.owner }}</li>
+{% empty %}
+    <li>No feedings yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

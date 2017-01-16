@@ -10,7 +10,7 @@ from django.db import models
 
 class Walk(models.Model):
     pet = models.ForeignKey(Pet(), on_delete=models.CASCADE, default=None)
-    walk_time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.localtime(django.utils.timezone.now()))
+    walk_time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
     walk_date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
     comments = models.TextField(blank=True)
 

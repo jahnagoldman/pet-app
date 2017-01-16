@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include, url
 from accounts.views import (login_view, register_view, logout_view,)
+from feedings.views import FeedingListView, NewFeedingView
 from pets.views import PetListView, NewPetView
 from walks.views import index, WalkListView, NewWalkView
 from django.contrib.auth import views as auth_views
@@ -28,6 +29,8 @@ urlpatterns = [
     url(r'^pets/new/$', NewPetView.as_view(), name='new_pet'),
     url(r'^walks/$', WalkListView.as_view(), name='walk-list'),
     url(r'^walks/new/$', NewWalkView.as_view(), name='new_walk'),
+    url(r'^feedings/$', FeedingListView.as_view(), name='feeding-list'),
+    url(r'^feedings/new/$', NewFeedingView.as_view(), name='new_feeding'),
     url(r'^', index, name='home'),
 
 ]

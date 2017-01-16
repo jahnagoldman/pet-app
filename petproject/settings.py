@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'walks',
     'pets',
+    'feedings',
     'crispy_forms',
 
 ]

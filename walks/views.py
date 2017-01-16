@@ -1,15 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-
-# Create your views here.
 from django.views.generic import FormView
 from django.views.generic import ListView
 from walks.forms import WalkForm
 from walks.models import Walk
-from pets.models import Pet
 
+
+# Create your views here.
 
 @login_required(login_url='/login/')
 def index(request):
