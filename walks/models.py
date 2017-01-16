@@ -1,6 +1,5 @@
 from datetime import date
 import django
-
 from pets.models import Pet
 from django.db import models
 

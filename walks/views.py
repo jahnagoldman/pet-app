@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import FormView
 from django.views.generic import ListView
 from walks.forms import WalkForm
@@ -28,13 +28,14 @@ class NewWalkView(LoginRequiredMixin, FormView):
         return kw
 
     def form_valid(self, form):
-    # this method is called when valid form data has been POSTed - returns HTTPResponse
+        # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         walk_time = form.cleaned_data['walk_time']
         walk_date = form.cleaned_data['walk_date']
         comments = form.cleaned_data['comments']
         new_walk = Walk.create(pet, walk_time, walk_date, comments)
         return super(NewWalkView, self).form_valid(form)
+
 
 # login required for a class
 class WalkListView(LoginRequiredMixin, ListView):
