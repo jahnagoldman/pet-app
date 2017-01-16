@@ -2,12 +2,11 @@ from django import forms
 from django.contrib.auth import (
     authenticate,
     get_user_model,
-    login,
-    logout,
 )
 
 # current user
 User = get_user_model()
+
 
 # login form
 class UserLoginForm(forms.Form):
@@ -27,11 +26,13 @@ class UserLoginForm(forms.Form):
                 raise forms.ValidationError("This user is no longer active")
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
+
 # model form
 class UserRegisterForm(forms.ModelForm):
     email = forms.EmailField(label='Email Address')
     email2 = forms.EmailField(label='Confirm Email')
     password = forms.CharField(widget=forms.PasswordInput)
+
     class Meta:
         model = User
         fields = [

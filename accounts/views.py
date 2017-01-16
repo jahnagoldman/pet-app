@@ -1,11 +1,12 @@
-from django.contrib.auth import(
+from django.contrib.auth import (
     authenticate,
-    get_user_model,
     login,
     logout
 )
 from django.shortcuts import render, redirect
 from .forms import UserLoginForm, UserRegisterForm
+
+
 # Create your views here.
 
 def login_view(request):
@@ -19,7 +20,8 @@ def login_view(request):
         login(request, user)
         print(request.user.is_authenticated())
         return redirect("/")
-    return render(request, "login.html", {"form":form, "title": title})
+    return render(request, "login.html", {"form": form, "title": title})
+
 
 def register_view(request):
     title = "Register"
@@ -37,7 +39,8 @@ def register_view(request):
         "title": title
 
     }
-    return render(request, "form.html", {"form":form, "title": title})
+    return render(request, "form.html", {"form": form, "title": title})
+
 
 def logout_view(request):
     logout(request)
