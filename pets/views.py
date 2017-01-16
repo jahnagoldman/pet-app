@@ -1,9 +1,6 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
 from django.views.generic import FormView
 from django.views.generic import ListView
-
 from .forms import PetForm
 from .models import Pet
 
@@ -18,7 +15,7 @@ class NewPetView(LoginRequiredMixin, FormView):
     success_url = '/pets/'
 
     def form_valid(self, form):
-    # this method is called when valid form data has been POSTed - returns HTTPResponse
+        # this method is called when valid form data has been POSTed - returns HTTPResponse
         name = form.cleaned_data['name']
         animal = form.cleaned_data['animal']
         birthday = form.cleaned_data['birthday']
@@ -26,6 +23,7 @@ class NewPetView(LoginRequiredMixin, FormView):
         owner = self.request.user
         new_pet = Pet.create(owner, name, animal, birthday, microchip_number)
         return super(NewPetView, self).form_valid(form)
+
 
 # login required for a class
 class PetListView(LoginRequiredMixin, ListView):
