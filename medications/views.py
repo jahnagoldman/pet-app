@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.views.generic import FormView
 from django.views.generic import ListView
-
 from medications.forms import MedicationForm
 from medications.models import Medication
 
@@ -29,7 +28,7 @@ class NewMedicationView(LoginRequiredMixin, FormView):
         return kw
 
     def form_valid(self, form):
-    # this method is called when valid form data has been POSTed - returns HTTPResponse
+        # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         medication_type = form.cleaned_data['medication_type']
         medication_time = form.cleaned_data['medication_time']
@@ -37,6 +36,7 @@ class NewMedicationView(LoginRequiredMixin, FormView):
         comments = form.cleaned_data['comments']
         new_medication = Medication.create(pet, medication_type, medication_time, medication_date, comments)
         return super(NewMedicationView, self).form_valid(form)
+
 
 # login required for a class
 class MedicationListView(LoginRequiredMixin, ListView):

@@ -1,12 +1,10 @@
-from django.db import models
 from datetime import date
-
 import django
 from django.db import models
+from pets.models import Pet
+
 
 # Create your models here.
-
-from pets.models import Pet
 
 
 class Medication(models.Model):
@@ -41,7 +39,7 @@ class Medication(models.Model):
 
     @classmethod
     def create(cls, pet, medication_type, medication_time, medication_date, comments):
-        medication = cls(pet=pet, medication_type=medication_type, medication_time=medication_time, medication_date=medication_date, comments=comments)
+        medication = cls(pet=pet, medication_type=medication_type, medication_time=medication_time,
+                         medication_date=medication_date, comments=comments)
         medication.save()
         return medication
-

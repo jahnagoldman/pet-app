@@ -29,13 +29,14 @@ class NewFeedingView(LoginRequiredMixin, FormView):
         return kw
 
     def form_valid(self, form):
-    # this method is called when valid form data has been POSTed - returns HTTPResponse
+        # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         feeding_time = form.cleaned_data['feeding_time']
         feeding_date = form.cleaned_data['feeding_date']
         comments = form.cleaned_data['comments']
         new_feeding = Feeding.create(pet, feeding_time, feeding_date, comments)
         return super(NewFeedingView, self).form_valid(form)
+
 
 # login required for a class
 class FeedingListView(LoginRequiredMixin, ListView):
