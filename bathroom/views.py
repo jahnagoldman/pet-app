@@ -34,7 +34,7 @@ class NewBathroomView(LoginRequiredMixin, FormView):
         bathroom_time = form.cleaned_data['bathroom_time']
         bathroom_date = form.cleaned_data['bathroom_date']
         comments = form.cleaned_data['comments']
-        new_bathroom = Bathroom.create(pet, bathroom_time, bathroom_date, comments)
+        new_bathroom = Bathroom.create(pet, bathroom_type, bathroom_time, bathroom_date, comments)
         return super(NewBathroomView, self).form_valid(form)
 
 
