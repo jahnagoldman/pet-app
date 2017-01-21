@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Recent Events</h1>
+<ul>
+    <h3 title="All Walks"> <a href="/walks/"> Walks</a></h3>
+{% for walk in walk_list %}
+    <li> {{ 'Walk' }} - {{ walk.pet.name }} - {{ walk.walk_time }} - {{ walk.walk_date }} - {{ walk.comments }} - {{ walk.pet.owner }}</li>
+{% empty %}
+    <li>No recent walks.</li>
+{% endfor %}
+<h3 title="All Feedings"> <a href="/feedings/">Feedings</a> </h3>
+{% for feeding in feeding_list %}
+    <li> {{ 'Feeding' }} - {{ feeding.pet.name }} - {{ feeding.feeding_time }} - {{ feeding.feeding_date }} - {{ feeding.comments }} - {{ feeding.pet.owner }}</li>
+{% empty %}
+    <li>No recent feedings.</li>
+{% endfor %}
+    <h3 title="All Bathroom Events"> <a href="/bathroom/"> Bathroom Events</a></h3>
+{% for bathroom in bathroom_list %}
+    <li> {{ 'Bathroom Event' }} - {{ bathroom.pet.name }} - {{ bathroom.bathroom_time }} - {{ bathroom.bathroom_date }} - {{ bathroom.bathroom_type }} - {{ bathroom.comments }} - {{ bathroom.pet.owner }}</li>
+{% empty %}
+    <li>No recent bathroom events.</li>
+{% endfor %}
+    <h3 title="All Medication Events"> <a href="/medications/"> Medication Events</a></h3>
+
+    {% for medication in medication_list %}
+    <li> {{ 'Medication Event' }} - {{ medication.pet.name }} - {{ medication.type }} - {{ medication.medication_time }} - {{ medication.medication_date }} - {{ medication.comments }} - {{ medication.pet.owner }}</li>
+{% empty %}
+    <li>No recent medication events.</li>
+{% endfor %}
+
+</ul>
+    <form action='/pets/new/'>
+    <input type="submit" value="Add A Pet" />
+</form>
+    </form>
+    <form action='/feedings/new/'>
+    <input type="submit" value="Add A Feeding" />
+</form>
+    <form action='/walks/new/'>
+    <input type="submit" value="Add A Walk" />
+</form>
+
+    <form action='/bathroom/new/'>
+    <input type="submit" value="Add A Bathroom Event" />
+    </form>
+    <form action='/medications/new/'>
+    <input type="submit" value="Add A Medication Event" />
+</form>
+
+{% endblock %}

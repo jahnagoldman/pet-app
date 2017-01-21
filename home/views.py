@@ -12,19 +12,23 @@ from pets.models import Pet
 from walks.models import Walk
 
 
-class HomeView(LoginRequiredMixin, TemplateView):
+class LogInHomeView(LoginRequiredMixin, TemplateView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
-    template_name = 'home/home_page.html'
+    template_name = 'home/login_home_page.html'
 
 
     # def get_queryset(self):
     #     return Pet.objects.filter(owner=self.request.user)
 
     def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
+        context = super(LogInHomeView, self).get_context_data(**kwargs)
         context['feeding_list'] = Feeding.objects.filter(pet__owner=self.request.user, ).order_by('-feeding_date', '-feeding_time')[:3]
         context['bathroom_list'] = Bathroom.objects.filter(pet__owner=self.request.user).order_by('-bathroom_date', '-bathroom_time')[:3]
         context['walk_list'] = Walk.objects.filter(pet__owner=self.request.user).order_by('-walk_date', '-walk_time')[:3]
         context['medication_list'] = Medication.objects.filter(pet__owner=self.request.user).order_by('-medication_date', '-medication_time')[:3]
         return context
+
+
+class HomeView(TemplateView):
+    template_name = 'home/home_page.html'

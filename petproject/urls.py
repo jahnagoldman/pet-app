@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 from accounts.views import (login_view, register_view, logout_view, )
 from bathroom.views import BathroomListView, NewBathroomView
 from feedings.views import FeedingListView, NewFeedingView
-from home.views import HomeView
+from home.views import LogInHomeView, HomeView
 from medications.views import MedicationListView, NewMedicationView
 from pets.views import PetListView, NewPetView
 from walks.views import WalkListView, NewWalkView
@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^bathroom/new/$', NewBathroomView.as_view(), name='new_bathroom'),
     url(r'^medications/$', MedicationListView.as_view(), name='medication-list'),
     url(r'^medications/new/$', NewMedicationView.as_view(), name='new_medication'),
+    url(r'^home/$', LogInHomeView.as_view(), name='home'),
     url(r'^', HomeView.as_view(), name='home'),
 
 ]
