@@ -46,7 +46,7 @@ class BathroomListView(LoginRequiredMixin, ListView):
     template_name = 'bathroom/bathroom_list.html'
 
     def get_queryset(self):
-        return Bathroom.objects.filter(pet__owner=self.request.user)
+        return Bathroom.objects.filter(pet__owner=self.request.user).order_by('-bathroom_date', '-bathroom_time')
 
     def get_context_data(self, **kwargs):
         context = super(BathroomListView, self).get_context_data(**kwargs)

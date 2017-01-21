@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'feedings',
     'bathroom',
     'medications',
+    'home',
     'crispy_forms',
 
 ]

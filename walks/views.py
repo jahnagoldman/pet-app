@@ -9,9 +9,9 @@ from walks.models import Walk
 
 # Create your views here.
 
-@login_required(login_url='/login/')
-def index(request):
-    return render(request, 'base.html')
+# @login_required(login_url='/login/')
+# def index(request):
+#     return render(request, 'base.html')
 
 
 class NewWalkView(LoginRequiredMixin, FormView):
@@ -45,7 +45,7 @@ class WalkListView(LoginRequiredMixin, ListView):
     template_name = 'walks/walk_list.html'
 
     def get_queryset(self):
-        return Walk.objects.filter(pet__owner=self.request.user)
+        return Walk.objects.filter(pet__owner=self.request.user).order_by('-walk_date', '-walk_time')
 
     def get_context_data(self, **kwargs):
         context = super(WalkListView, self).get_context_data(**kwargs)

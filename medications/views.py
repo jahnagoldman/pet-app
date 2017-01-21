@@ -46,7 +46,7 @@ class MedicationListView(LoginRequiredMixin, ListView):
     template_name = 'medications/medication_list.html'
 
     def get_queryset(self):
-        return Medication.objects.filter(pet__owner=self.request.user)
+        return Medication.objects.filter(pet__owner=self.request.user).order_by('-medication_date', '-medication_time')
 
     def get_context_data(self, **kwargs):
         context = super(MedicationListView, self).get_context_data(**kwargs)

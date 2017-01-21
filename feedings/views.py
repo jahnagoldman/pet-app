@@ -46,7 +46,7 @@ class FeedingListView(LoginRequiredMixin, ListView):
     template_name = 'feedings/feeding_list.html'
 
     def get_queryset(self):
-        return Feeding.objects.filter(pet__owner=self.request.user)
+        return Feeding.objects.filter(pet__owner=self.request.user).order_by('-feeding_date', '-feeding_time')
 
     def get_context_data(self, **kwargs):
         context = super(FeedingListView, self).get_context_data(**kwargs)
