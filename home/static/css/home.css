@@ -1,9 +1,13 @@
 h1 a {
     color: green;
-    font-family: 'Lobster';
+    font-family: 'Roboto Slab', serif;
+}
+
+h3 {
+    font-family: 'Roboto Slab', serif;
 }
 body {
-    padding-left: 15px;
+    padding-left: 25px;
 }
 
 
