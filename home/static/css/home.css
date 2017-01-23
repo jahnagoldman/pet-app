@@ -1,4 +1,4 @@
-h1 a {
+h1 a, .container-fluid {
     color: green;
     font-family: 'Roboto Slab', serif;
 }
@@ -6,8 +6,13 @@ h1 a {
 h3 {
     font-family: 'Roboto Slab', serif;
 }
-body {
-    padding-left: 25px;
+.navbar .container-fluid .navbar-header .navbar-brand{
+    color: green;
 }
+
+/*body {*/
+    /*padding-left: 25px;*/
+/*}*/
+
 
 
