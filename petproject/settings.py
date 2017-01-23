@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'bathroom',
     'medications',
     'home',
+    'bootstrap3',
     'crispy_forms',
 
 ]
