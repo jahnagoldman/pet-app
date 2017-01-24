@@ -34,7 +34,8 @@ class NewMedicationView(LoginRequiredMixin, FormView):
         time = form.cleaned_data['time']
         date = form.cleaned_data['date']
         comments = form.cleaned_data['comments']
-        new_medication = Medication.create(pet, medication_type, time, date, comments)
+        event_type = 'M'
+        new_medication = Medication.create(pet, medication_type, time, date, comments, event_type)
         return super(NewMedicationView, self).form_valid(form)
 
 

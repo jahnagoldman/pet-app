@@ -35,7 +35,8 @@ class NewFeedingView(LoginRequiredMixin, FormView):
         time = form.cleaned_data["time"]
         date = form.cleaned_data["date"]
         comments = form.cleaned_data['comments']
-        new_feeding = Feeding.create(pet, time, date, comments)
+        event_type = 'F'
+        new_feeding = Feeding.create(pet, time, date, comments, event_type)
         return super(NewFeedingView, self).form_valid(form)
 
 

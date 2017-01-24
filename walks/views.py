@@ -33,7 +33,8 @@ class NewWalkView(LoginRequiredMixin, FormView):
         time = form.cleaned_data['time']
         date = form.cleaned_data['date']
         comments = form.cleaned_data['comments']
-        new_walk = Walk.create(pet, time, date, comments)
+        event_type = 'W'
+        new_walk = Walk.create(pet, time, date, comments, event_type)
         return super(NewWalkView, self).form_valid(form)
 
 
@@ -50,4 +51,5 @@ class WalkListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(WalkListView, self).get_context_data(**kwargs)
         context['walk_list'] = Walk.objects.all()
+        context['model'] = self.model
         return context

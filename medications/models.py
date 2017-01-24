@@ -1,14 +1,16 @@
 from datetime import date
 import django
+from django import template
 from django.db import models
+
+from feedings.models import Event
 from pets.models import Pet
 
 
 # Create your models here.
 
 
-class Medication(models.Model):
-    pet = models.ForeignKey(Pet(), on_delete=models.CASCADE, default=None)
+class Medication(Event):
     HW = 'Heartworm'
     FT = 'Flea/Tick'
     BM = 'Behavior-Modifying'
@@ -30,16 +32,14 @@ class Medication(models.Model):
         (CH, 'Chemotherapeutics'),
     }
     medication_type = models.CharField(max_length=100, choices=MEDICATION_TYPE_CHOICES, )
-    time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
-    date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
-    comments = models.TextField(blank=True)
 
     def __str__(self):
         return self.time
 
     @classmethod
-    def create(cls, pet, medication_type, time, date, comments):
+    def create(cls, pet, medication_type, time, date, comments, event_type):
         medication = cls(pet=pet, medication_type=medication_type, time=time,
-                         date=date, comments=comments)
+                         date=date, comments=comments, event_type=event_type)
         medication.save()
         return medication
+

@@ -41,11 +41,20 @@
 {% block content %}
 <h1>Recent Events</h1>
 <ul>
-    <h3 title='events'> Events</h3>
+    <h3> Events</h3>
 {% for event in object_list %}
-    <li> {{ event.time }} </li>
-    <li> {{ event.date }}</li>
-    <li> {{ event.type }}</li>
+    {% if event.event_type == 'F' %}
+        <li>Feeding: {{ event.time }} , {{ event.date }}</li>
+    {% endif %}
+    {% if event.event_type == 'B' %}
+        <li>Bathroom: {{ event.time }} , {{ event.date }}</li>
+    {% endif %}
+    {% if event.event_type == 'W' %}
+        <li>Walk: {{ event.time }} , {{ event.date }}</li>
+    {% endif %}
+    {% if event.event_type == 'M' %}
+        <li>Medication: {{ event.time }}, {{ event.date }}</li>
+    {% endif %}
 {% endfor %}
 </ul>
     <form action='/pets/new/'>

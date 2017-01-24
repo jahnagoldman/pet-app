@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from django.views.generic import TemplateView
 
 from bathroom.models import Bathroom
-from feedings.models import Feeding
+from feedings.models import Feeding, Event
 from medications.models import Medication
 from walks.models import Walk
 
@@ -18,17 +18,17 @@ class LogInHomeView(LoginRequiredMixin, ListView):
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
     template_name = 'home/login_home_page.html'
-    model = Walk
+    model = Event
+
+    def get_queryset(self):
+        return Event.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')
 
     def get_context_data(self, **kwargs):
         context = super(LogInHomeView, self).get_context_data(**kwargs)
-        context['feeding_list'] = Feeding.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')[:3]
-        context['bathroom_list'] = Bathroom.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')[:3]
-        context['medication_list'] = Medication.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')[:3]
+        context['events'] = Event.objects.all()
         return context
 
-    def get_queryset(self):
-        return Walk.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')[:3]
+
 
 class HomeView(TemplateView):
     template_name = 'home/home_page.html'
