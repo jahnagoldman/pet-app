@@ -9,15 +9,15 @@ from django.db import models
 
 class Walk(models.Model):
     pet = models.ForeignKey(Pet(), on_delete=models.CASCADE, default=None)
-    walk_time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
-    walk_date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
+    time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
+    date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
     comments = models.TextField(blank=True)
 
     def __str__(self):
-        return self.walk_time
+        return self.time
 
     @classmethod
-    def create(cls, pet, walk_time, walk_date, comments):
-        walk = cls(pet=pet, walk_time=walk_time, walk_date=walk_date, comments=comments)
+    def create(cls, pet, time, date, comments):
+        walk = cls(pet=pet, time=time, date=date, comments=comments)
         walk.save()
         return walk

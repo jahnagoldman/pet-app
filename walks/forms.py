@@ -6,7 +6,7 @@ from .models import Walk
 class WalkForm(forms.ModelForm):
     class Meta:
         model = Walk
-        fields = ('pet', 'walk_time', 'walk_date', 'comments')
+        fields = ('pet', 'time', 'date', 'comments')
 
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):

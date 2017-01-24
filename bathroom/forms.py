@@ -6,7 +6,7 @@ from .models import Bathroom
 class BathroomForm(forms.ModelForm):
     class Meta:
         model = Bathroom
-        fields = ('pet', 'bathroom_type', 'bathroom_time', 'bathroom_date', 'comments')
+        fields = ('pet', 'bathroom_type', 'time', 'date', 'comments')
 
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):

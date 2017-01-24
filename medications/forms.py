@@ -6,7 +6,7 @@ from .models import Medication
 class MedicationForm(forms.ModelForm):
     class Meta:
         model = Medication
-        fields = ('pet', 'medication_type', 'medication_time', 'medication_date', 'comments')
+        fields = ('pet', 'medication_type', 'time', 'date', 'comments')
 
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):

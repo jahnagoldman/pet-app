@@ -2,7 +2,6 @@ from datetime import date
 from django.contrib.auth.models import User
 from django.db import models
 
-
 # Create your models here.
 
 class Pet(models.Model):

@@ -11,3 +11,4 @@ class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
         fields = ('name', 'animal', 'birthday', 'microchip_number')
+

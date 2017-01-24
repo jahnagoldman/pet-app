@@ -31,10 +31,10 @@ class NewMedicationView(LoginRequiredMixin, FormView):
         # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         medication_type = form.cleaned_data['medication_type']
-        medication_time = form.cleaned_data['medication_time']
-        medication_date = form.cleaned_data['medication_date']
+        time = form.cleaned_data['time']
+        date = form.cleaned_data['date']
         comments = form.cleaned_data['comments']
-        new_medication = Medication.create(pet, medication_type, medication_time, medication_date, comments)
+        new_medication = Medication.create(pet, medication_type, time, date, comments)
         return super(NewMedicationView, self).form_valid(form)
 
 
@@ -46,7 +46,7 @@ class MedicationListView(LoginRequiredMixin, ListView):
     template_name = 'medications/medication_list.html'
 
     def get_queryset(self):
-        return Medication.objects.filter(pet__owner=self.request.user).order_by('-medication_date', '-medication_time')
+        return Medication.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')
 
     def get_context_data(self, **kwargs):
         context = super(MedicationListView, self).get_context_data(**kwargs)

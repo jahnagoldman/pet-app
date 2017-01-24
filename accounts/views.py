@@ -20,7 +20,7 @@ def login_view(request):
         login(request, user)
         print(request.user.is_authenticated())
         return redirect("/home/")
-    return render(request, "accounts/login.html", {"form": form, "title": title})
+    return render(request, "accounts/accounts.html", {"form": form, "title": title})
 
 
 def register_view(request):
@@ -39,7 +39,7 @@ def register_view(request):
         "title": title
 
     }
-    return render(request, "form.html", {"form": form, "title": title})
+    return render(request, "accounts/accounts.html", {"form": form, "title": title})
 
 
 def logout_view(request):

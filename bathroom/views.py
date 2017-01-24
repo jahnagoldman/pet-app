@@ -31,10 +31,10 @@ class NewBathroomView(LoginRequiredMixin, FormView):
         # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
         bathroom_type = form.cleaned_data['bathroom_type']
-        bathroom_time = form.cleaned_data['bathroom_time']
-        bathroom_date = form.cleaned_data['bathroom_date']
+        time = form.cleaned_data['time']
+        date = form.cleaned_data['date']
         comments = form.cleaned_data['comments']
-        new_bathroom = Bathroom.create(pet, bathroom_type, bathroom_time, bathroom_date, comments)
+        new_bathroom = Bathroom.create(pet, bathroom_type, time, date, comments)
         return super(NewBathroomView, self).form_valid(form)
 
 
@@ -46,7 +46,7 @@ class BathroomListView(LoginRequiredMixin, ListView):
     template_name = 'bathroom/bathroom_list.html'
 
     def get_queryset(self):
-        return Bathroom.objects.filter(pet__owner=self.request.user).order_by('-bathroom_date', '-bathroom_time')
+        return Bathroom.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')
 
     def get_context_data(self, **kwargs):
         context = super(BathroomListView, self).get_context_data(**kwargs)

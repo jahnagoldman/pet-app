@@ -1,34 +1,52 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load bootstrap3 %}
+{%  load crispy_forms_tags %}
+<html lang="en">
+    <head>
+        <title>Lucy Pet App </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'accounts/accounts.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <nav class="navbar navbar-default navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><i class="fa fa-paw"></i> Lucy! A Pet Tracking Application</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/home/">Home</a></li>
+          <li><a href="/pets/new/">Add A Pet <span class="glyphicon glyphicon-plus-sign"></span> </a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 {% block content %}
 <h1>Recent Events</h1>
 <ul>
-    <h3 title="All Walks"> <a href="/walks/"> Walks</a></h3>
-{% for walk in walk_list %}
-    <li> {{ 'Walk' }} - {{ walk.pet.name }} - {{ walk.walk_time }} - {{ walk.walk_date }} - {{ walk.comments }} - {{ walk.pet.owner }}</li>
-{% empty %}
-    <li>No recent walks.</li>
+    <h3 title='events'> Events</h3>
+{% for event in object_list %}
+    <li> {{ event.time }} </li>
+    <li> {{ event.date }}</li>
+    <li> {{ event.type }}</li>
 {% endfor %}
-<h3 title="All Feedings"> <a href="/feedings/">Feedings</a> </h3>
-{% for feeding in feeding_list %}
-    <li> {{ 'Feeding' }} - {{ feeding.pet.name }} - {{ feeding.feeding_time }} - {{ feeding.feeding_date }} - {{ feeding.comments }} - {{ feeding.pet.owner }}</li>
-{% empty %}
-    <li>No recent feedings.</li>
-{% endfor %}
-    <h3 title="All Bathroom Events"> <a href="/bathroom/"> Bathroom Events</a></h3>
-{% for bathroom in bathroom_list %}
-    <li> {{ 'Bathroom Event' }} - {{ bathroom.pet.name }} - {{ bathroom.bathroom_time }} - {{ bathroom.bathroom_date }} - {{ bathroom.bathroom_type }} - {{ bathroom.comments }} - {{ bathroom.pet.owner }}</li>
-{% empty %}
-    <li>No recent bathroom events.</li>
-{% endfor %}
-    <h3 title="All Medication Events"> <a href="/medications/"> Medication Events</a></h3>
-
-    {% for medication in medication_list %}
-    <li> {{ 'Medication Event' }} - {{ medication.pet.name }} - {{ medication.type }} - {{ medication.medication_time }} - {{ medication.medication_date }} - {{ medication.comments }} - {{ medication.pet.owner }}</li>
-{% empty %}
-    <li>No recent medication events.</li>
-{% endfor %}
-
 </ul>
     <form action='/pets/new/'>
     <input type="submit" value="Add A Pet" />
@@ -49,3 +67,5 @@
 </form>
 
 {% endblock %}
+    </body>
+</html>

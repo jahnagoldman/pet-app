@@ -10,6 +10,7 @@ from feedings.models import Feeding
 
 # Create your views here.
 
+
 @login_required(login_url='/login/')
 def index(request):
     return render(request, 'base.html')
@@ -31,10 +32,10 @@ class NewFeedingView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
-        feeding_time = form.cleaned_data['feeding_time']
-        feeding_date = form.cleaned_data['feeding_date']
+        time = form.cleaned_data["time"]
+        date = form.cleaned_data["date"]
         comments = form.cleaned_data['comments']
-        new_feeding = Feeding.create(pet, feeding_time, feeding_date, comments)
+        new_feeding = Feeding.create(pet, time, date, comments)
         return super(NewFeedingView, self).form_valid(form)
 
 
@@ -46,7 +47,7 @@ class FeedingListView(LoginRequiredMixin, ListView):
     template_name = 'feedings/feeding_list.html'
 
     def get_queryset(self):
-        return Feeding.objects.filter(pet__owner=self.request.user).order_by('-feeding_date', '-feeding_time')
+        return Feeding.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')
 
     def get_context_data(self, **kwargs):
         context = super(FeedingListView, self).get_context_data(**kwargs)

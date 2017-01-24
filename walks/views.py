@@ -30,10 +30,10 @@ class NewWalkView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         # this method is called when valid form data has been POSTed - returns HTTPResponse
         pet = form.cleaned_data['pet']
-        walk_time = form.cleaned_data['walk_time']
-        walk_date = form.cleaned_data['walk_date']
+        time = form.cleaned_data['time']
+        date = form.cleaned_data['date']
         comments = form.cleaned_data['comments']
-        new_walk = Walk.create(pet, walk_time, walk_date, comments)
+        new_walk = Walk.create(pet, time, date, comments)
         return super(NewWalkView, self).form_valid(form)
 
 
@@ -45,7 +45,7 @@ class WalkListView(LoginRequiredMixin, ListView):
     template_name = 'walks/walk_list.html'
 
     def get_queryset(self):
-        return Walk.objects.filter(pet__owner=self.request.user).order_by('-walk_date', '-walk_time')
+        return Walk.objects.filter(pet__owner=self.request.user).order_by('-date', '-time')
 
     def get_context_data(self, **kwargs):
         context = super(WalkListView, self).get_context_data(**kwargs)

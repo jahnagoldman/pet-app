@@ -5,7 +5,7 @@ from .models import Feeding
 class FeedingForm(forms.ModelForm):
     class Meta:
         model = Feeding
-        fields = ('pet', 'feeding_time', 'feeding_date', 'comments')
+        fields = ('pet', "time", "date", 'comments')
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')

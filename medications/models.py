@@ -30,16 +30,16 @@ class Medication(models.Model):
         (CH, 'Chemotherapeutics'),
     }
     medication_type = models.CharField(max_length=100, choices=MEDICATION_TYPE_CHOICES, )
-    medication_time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
-    medication_date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
+    time = models.TimeField(auto_now=False, auto_now_add=False, default=django.utils.timezone.now)
+    date = models.DateField(auto_now=False, auto_now_add=False, default=date.today)
     comments = models.TextField(blank=True)
 
     def __str__(self):
-        return self.medication_time
+        return self.time
 
     @classmethod
-    def create(cls, pet, medication_type, medication_time, medication_date, comments):
-        medication = cls(pet=pet, medication_type=medication_type, medication_time=medication_time,
-                         medication_date=medication_date, comments=comments)
+    def create(cls, pet, medication_type, time, date, comments):
+        medication = cls(pet=pet, medication_type=medication_type, time=time,
+                         date=date, comments=comments)
         medication.save()
         return medication
