@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="{% static 'accounts/accounts.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
             span.lowercase {
                 text-transform: lowercase;
@@ -45,16 +43,32 @@
 <div class="container">
 {% block content %}
 <h1>Activity</h1>
-    <table class="table table-striped">
-    <tbody>
-{% for event in object_list %}
+    <table id="table_format" class="table table-striped table-bordered table-list-search">
+    <thead>
     <tr>
+        <th>Event Type
+        <select id='filterText' style='display:inline-block' onchange='filterText()'>
+								<option disabled selected>Select</option>
+								<option value='walk'>Walk</option>
+								<option value='ate'>Feeding</option>
+								<option value='bathroom'>Bathroom</option>
+                                <option value='medication'>Medication</option>
+                                <option value='all'>All</option>
+
+							</select>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody id="myTable">
+{% for event in object_list %}
+    <tr class="content">
          {% if event.event_type == 'F' %}
         <td> <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> {{ event.pet.name }} ate at {{ event.time }} on {{ event.date }}</td>
     {% elif event.event_type == 'B' and event.bathroom.bathroom_type == 'Poop' %}
-        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} pooped at {{ event.time }} on {{ event.date }}</td>
+        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} went to the bathroom (pooped) at {{ event.time }} on {{ event.date }}</td>
      {% elif event.event_type == 'B' and event.bathroom.bathroom_type == 'Pee' %}
-        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} peed at {{ event.time }} on {{ event.date }}</td>
+        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} went to the bathroom (peed) at {{ event.time }} on {{ event.date }}</td>
          {% elif event.event_type == 'W' %}
              <td> <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> {{ event.pet.name }} went for a walk at {{ event.time }} on {{ event.date }}</td>
     {% elif event.event_type == 'M' %}
@@ -85,5 +99,30 @@
 
 {% endblock %}
 </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+{#   I used http://stackoverflow.com/questions/35770982/how-to-make-dropdown-list-filter-for-a-table-using-jquery to do this #}
+<script>
+function filterText()
+	{
+		var rex = new RegExp($('#filterText').val());
+		if(rex =="/all/"){clearFilter()}else{
+			$('.content').hide();
+			$('.content').filter(function() {
+			return rex.test($(this).text());
+			}).show();
+	}
+	}
+
+function clearFilter()
+	{
+		$('.filterText').val('');
+		$('.content').show();
+	}
+</script>
     </body>
 </html>
