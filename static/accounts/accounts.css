@@ -9,3 +9,7 @@ h3, form, a {
     color: green;
 }
 
+ul {
+  list-style-type: none;
+}
+

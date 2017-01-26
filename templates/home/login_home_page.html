@@ -14,6 +14,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            span.lowercase {
+                text-transform: lowercase;
+            }
+        </style>
     </head>
     <body>
     <nav class="navbar navbar-default navbar-custom">
@@ -37,26 +42,29 @@
     </div>
   </div>
 </nav>
-
+<div class="container">
 {% block content %}
-<h1>Recent Events</h1>
-<ul>
-    <h3> Events</h3>
+<h1>Activity</h1>
+    <table class="table table-striped">
+    <tbody>
 {% for event in object_list %}
-    {% if event.event_type == 'F' %}
-        <li>Feeding: {{ event.time }} , {{ event.date }}</li>
+    <tr>
+         {% if event.event_type == 'F' %}
+        <td> <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> {{ event.pet.name }} ate at {{ event.time }} on {{ event.date }}</td>
+    {% elif event.event_type == 'B' and event.bathroom.bathroom_type == 'Poop' %}
+        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} pooped at {{ event.time }} on {{ event.date }}</td>
+     {% elif event.event_type == 'B' and event.bathroom.bathroom_type == 'Pee' %}
+        <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ event.pet.name }} peed at {{ event.time }} on {{ event.date }}</td>
+         {% elif event.event_type == 'W' %}
+             <td> <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span> {{ event.pet.name }} went for a walk at {{ event.time }} on {{ event.date }}</td>
+    {% elif event.event_type == 'M' %}
+        <td> <i class="fa fa-medkit" aria-hidden="true"></i> {{ event.pet.name }} took <span class="lowercase">{{ event.medication.medication_type }}</span> medication at {{ event.time }} on {{ event.date }}</td>
     {% endif %}
-    {% if event.event_type == 'B' %}
-        <li>Bathroom: {{ event.time }} , {{ event.date }}</li>
-    {% endif %}
-    {% if event.event_type == 'W' %}
-        <li>Walk: {{ event.time }} , {{ event.date }}</li>
-    {% endif %}
-    {% if event.event_type == 'M' %}
-        <li>Medication: {{ event.time }}, {{ event.date }}</li>
-    {% endif %}
+    </tr>
+
 {% endfor %}
-</ul>
+    </tbody>
+</table>
     <form action='/pets/new/'>
     <input type="submit" value="Add A Pet" />
 </form>
@@ -76,5 +84,6 @@
 </form>
 
 {% endblock %}
+</div>
     </body>
 </html>
