@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'petproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dogdb',
+        'NAME': 'jahnagoldman$dogdb',
         'USER': 'jahnagoldman',
-        'PASSWORD': 'petapp1234',
+        'PASSWORD': 'jahnamysql',
         'HOST': 'jahnagoldman.mysql.pythonanywhere-services.com',
         'PORT': '3306',
 
