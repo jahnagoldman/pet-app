@@ -40,7 +40,7 @@
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container-fluid">
 {% block content %}
 <h1>Activity</h1>     <a class="new" href="/walks/new/"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>  New Walk</a>
     <a class="new" href="/feedings/new/"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>  New Feeding</a>
@@ -82,13 +82,16 @@
     {% elif event.event_type == 'M' %}
         <td> <i class="fa fa-medkit" aria-hidden="true"></i> {{ event.pet.name }} took <span class="lowercase">{{ event.medication.medication_type }}</span> medication at {{ event.time }} on {{ event.date }}</td>
     {% endif %}
+
+    </tr>
+    {% empty %}
+    <tr>
+    <td>No events yet! Add your pet's profile, and then get started adding events. </td>
     </tr>
 
 {% endfor %}
     </tbody>
 </table>
-    </form>
-
 {% endblock %}
 </div>
 

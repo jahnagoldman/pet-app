@@ -6,6 +6,10 @@ class FeedingForm(forms.ModelForm):
     class Meta:
         model = Feeding
         fields = ('pet', "time", "date", 'comments')
+        widgets = {
+        'comments': forms.Textarea(attrs={'rows': 1, 'cols': 50}),
+        }
+
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request')

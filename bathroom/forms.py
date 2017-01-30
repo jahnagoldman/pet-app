@@ -7,6 +7,9 @@ class BathroomForm(forms.ModelForm):
     class Meta:
         model = Bathroom
         fields = ('pet', 'bathroom_type', 'time', 'date', 'comments')
+        widgets = {
+            'comments': forms.Textarea(attrs={'rows':1, 'cols': 50}),
+        }
 
     # override constructor to only display pets that belong to the logged in user
     def __init__(self, *args, **kwargs):

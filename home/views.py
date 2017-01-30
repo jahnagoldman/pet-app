@@ -32,3 +32,6 @@ class LogInHomeView(LoginRequiredMixin, ListView):
 
 class HomeView(TemplateView):
     template_name = 'home/home_page.html'
+
+class AboutView(TemplateView):
+    template_name = 'home/about.html'
