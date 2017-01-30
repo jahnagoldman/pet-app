@@ -1,0 +1,30 @@
+h1, h1 a, .container-fluid {
+    color: green;
+    font-family: 'Roboto Slab', serif;
+}
+
+h3, form, table {
+    font-family: 'Roboto Slab', serif;
+}
+
+.navbar .container-fluid .navbar-header .navbar-brand {
+    color: green;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.glyphicon-trash, .glyphicon-cutlery, .glyphicon-tree-deciduous, .fa-medkit {
+    padding-right: 15px;
+}
+h1 {
+    display: inline-block;
+}
+
+.new {
+    color: green;
+    font-family: 'Roboto Slab', serif;
+    float: right;
+    padding-right: 25px;
+}
