@@ -72,7 +72,7 @@ ROOT_URLCONF = 'petproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': ["/pet-app/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
