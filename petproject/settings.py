@@ -138,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "/home/jahnagoldman/pet-app/static"
 ACCOUNT_ACTIVATION_DAYS = 7
 
 DATE_INPUT_FORMATS = [
