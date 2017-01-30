@@ -94,8 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dogdb',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'jahnagoldman',
+        'PASSWORD': 'petapp1234',
         'HOST': 'jahnagoldman.mysql.pythonanywhere-services.com',
         'PORT': '3306',
 
