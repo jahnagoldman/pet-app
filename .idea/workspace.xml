@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72992359-460d-44f6-8d32-e71828988a46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base/base.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/accounts/accounts.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/events/eventlist.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/home/about.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/home/home.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/home/login_home_page.css" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/static/events/eventform.css" afterPath="$PROJECT_DIR$/static/petproject/petproject.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base/libase.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/accounts/accounts.html" afterPath="$PROJECT_DIR$/templates/accounts/accounts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/bathroom/bathroom_list.html" afterPath="$PROJECT_DIR$/templates/bathroom/bathroom_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/bathroom/new_bathroom.html" afterPath="$PROJECT_DIR$/templates/bathroom/new_bathroom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/feedings/feeding_list.html" afterPath="$PROJECT_DIR$/templates/feedings/feeding_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/feedings/new_feeding.html" afterPath="$PROJECT_DIR$/templates/feedings/new_feeding.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home/about.html" afterPath="$PROJECT_DIR$/templates/home/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home/home_page.html" afterPath="$PROJECT_DIR$/templates/home/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/home/login_home_page.html" afterPath="$PROJECT_DIR$/templates/home/login_home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/medications/medication_list.html" afterPath="$PROJECT_DIR$/templates/medications/medication_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/medications/new_medication.html" afterPath="$PROJECT_DIR$/templates/medications/new_medication.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets/new_pet.html" afterPath="$PROJECT_DIR$/templates/pets/new_pet.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets/pet_list.html" afterPath="$PROJECT_DIR$/templates/pets/pet_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/walks/new_walk.html" afterPath="$PROJECT_DIR$/templates/walks/new_walk.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/walks/walk_list.html" afterPath="$PROJECT_DIR$/templates/walks/walk_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/petproject/settings.py" afterPath="$PROJECT_DIR$/petproject/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,11 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="211">
               <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/petproject/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -129,16 +117,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/home/about.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -196,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/petproject/settings.py" />
         <option value="$PROJECT_DIR$/static/accounts/login.css" />
         <option value="$PROJECT_DIR$/templates/accounts/signup.html" />
         <option value="$PROJECT_DIR$/templates/accounts/login.html" />
@@ -247,6 +224,7 @@
         <option value="$PROJECT_DIR$/static/petproject/petproject.css" />
         <option value="$PROJECT_DIR$/templates/base/libase.html" />
         <option value="$PROJECT_DIR$/templates/base/base.html" />
+        <option value="$PROJECT_DIR$/petproject/settings.py" />
       </list>
     </option>
   </component>
@@ -257,8 +235,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="137" />
+    <option name="x" value="315" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="773" />
   </component>
@@ -449,6 +427,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="petproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="petproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="petproject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -831,7 +823,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="137" width="1280" height="773" extended-state="0" />
+    <frame x="315" y="23" width="1280" height="773" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31421646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -885,7 +877,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/accounts/signup.css" />
     <entry file="file://$PROJECT_DIR$/templates/accounts/signup.html" />
     <entry file="file://$PROJECT_DIR$/accounts/forms.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1256,6 +1247,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="39" column="17" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/petproject/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
           <folding />
         </state>
       </provider>

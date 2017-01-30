@@ -31,7 +31,7 @@ STATICFILES_DIRS = [
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'pythonanywhere.com', 'localhost']
 
 # Application definition
 
@@ -96,7 +96,7 @@ DATABASES = {
         'NAME': 'dogdb',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'HOST': 'jahnagoldman.mysql.pythonanywhere-services.com',
         'PORT': '3306',
 
     }
