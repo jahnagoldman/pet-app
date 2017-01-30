@@ -16,11 +16,16 @@ ul {
     list-style-type: none;
 }
 
+.post-form, form {
+    color: black;
+}
+
+#about {
+    color: dimgray;
+}
+
 .glyphicon-trash, .glyphicon-cutlery, .glyphicon-tree-deciduous, .fa-medkit {
     padding-right: 15px;
-}
-h1 {
-    display: inline-block;
 }
 
 .new {
@@ -28,4 +33,29 @@ h1 {
     font-family: 'Roboto Slab', serif;
     float: right;
     padding-right: 25px;
+
+}
+
+/*form {*/
+/*float: right;*/
+/*}*/
+
+#header {
+    width: 500px;
+    display: inline;
+}
+
+.carousel_title {
+    color: white;
+}
+
+.event_header {
+    display: inline-block;
+}
+
+.add_new {
+    display: inline-block;
+    color: green;
+    padding-left: 15px;
+    padding-bottom: 25px;
 }

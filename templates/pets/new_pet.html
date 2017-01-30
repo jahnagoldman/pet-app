@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-{% load bootstrap3 %}
-{%  load crispy_forms_tags %}
-<html lang="en">
-    <head>
-        <title>Lucy Pet App </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'accounts/accounts.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-    <nav class="navbar navbar-default navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/"><i class="fa fa-paw"></i> Lucy! A Pet Tracking Application</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/home/">Home</a></li>
-          <li><a href="/pets/new/">Add A Pet <span class="glyphicon glyphicon-plus-sign"></span> </a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+{% extends 'base/libase.html' %}
 {% block content %}
     <h1>Create a pet</h1>
     <form method="POST" class="post-form">{% csrf_token %}
@@ -45,7 +6,4 @@
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
-
-    </body>
-</html>
 
